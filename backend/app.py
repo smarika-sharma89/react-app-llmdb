@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import psycopg2
-import openai
+from openai import OpenAI
 import os
 from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
@@ -9,11 +9,11 @@ from fastapi.middleware.cors import CORSMiddleware
 load_dotenv()  # Load environment variables
 
 # Retrieve database configuration from environment variables
-db_name = 'staging_sept_23'
-db_user = 'postgres'
-db_host = 'localhost'
+db_name = "staging_sept_23"
+db_user = "postgres"
+db_host = "localhost"
 db_port = 5432
-db_password = ''  # No password
+db_password = ""  # No password
 
 # Construct the database URL
 db_url = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
@@ -27,8 +27,11 @@ def get_db_connection():
         print("Failed to connect to PostgreSQL:", e)
         raise
 
+
+client = OpenAI()
+
 # Configure OpenAI API key
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client.api_key = os.getenv("OPENAI_API_KEY")
 
 app = FastAPI()
 
@@ -40,25 +43,29 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # Pydantic model for request payload
 class QuestionRequest(BaseModel):
     question: str
+
 
 @app.on_event("startup")
 async def startup():
     # Ensure DB connection is available
     get_db_connection()
 
+
 def get_gpt_response(question, prompt):
     messages = [
         {"role": "system", "content": prompt[0]},
-        {"role": "user", "content": question}
+        {"role": "user", "content": question},
     ]
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=messages
+    completion = client.chat.completions.create(
+        model="gpt-3.5-turbo", messages=messages
     )
-    return response.choices[0].message["content"].strip()
+    response = completion.choices[0].message.content
+    return response
+
 
 @app.post("/ask-question/")
 async def ask_question(request: QuestionRequest):
@@ -66,7 +73,7 @@ async def ask_question(request: QuestionRequest):
     print(question)
     # Define prompt with table names
     db_conn = get_db_connection()
-    print('HeRE!!!')
+    print("HeRE!!!")
     table_names_str = ", ".join(fetch_table_names(db_conn))
     # print(table_names_str)
     prompt = [
@@ -76,24 +83,23 @@ async def ask_question(request: QuestionRequest):
         Based on these tables, generate a query.
         """
     ]
-    
+
     try:
         # Generate SQL query using GPT
         sql_query = get_gpt_response(question, prompt)
-        print(sql_query)
-        
+
+        # THIS PART IS FAILING BECAUSE OF INCORRECT SQL QUERY GENERATION (FIX THIS)
         # Execute the SQL query
-        data = execute_sql_query(db_conn, sql_query)
-        answer = get_proper_answer(question, data)
-        
-        return {
-            "sql_query": sql_query,
-            "query_result": data,
-            "answer": answer
-        }
-        
+        # data = execute_sql_query(db_conn, sql_query)
+
+        # answer = get_proper_answer(question, data)
+
+        # return {"sql_query": sql_query, "query_result": data, "answer": answer}
+        return {"response": sql_query}
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
+
 
 def execute_sql_query(db_conn, sql):
     cur = db_conn.cursor()
@@ -102,16 +108,20 @@ def execute_sql_query(db_conn, sql):
     cur.close()
     return rows
 
+
 def fetch_table_names(db_conn):
     cur = db_conn.cursor()
-    cur.execute("""
+    cur.execute(
+        """
         SELECT table_name
         FROM information_schema.tables
         WHERE table_schema='public';
-    """)
+    """
+    )
     tables = [table[0] for table in cur.fetchall()]
     cur.close()
     return tables
+
 
 def get_proper_answer(question, data):
     data_str = "\n".join([str(row) for row in data])
