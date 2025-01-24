@@ -1,0 +1,1040 @@
+Table: subcontract_management_mergedretention
+  Column: total_assessed_retention, Data Type: numeric
+  Column: created_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: total_submitted_retention, Data Type: numeric
+  Column: tenant_id, Data Type: uuid
+  Column: total_previous_submitted_retention, Data Type: numeric
+  Column: total_previous_assessed_retention, Data Type: numeric
+  Column: id, Data Type: uuid
+  Column: current_assessed_retention, Data Type: numeric
+  Column: current_submitted_retention, Data Type: numeric
+  Column: updated_at, Data Type: timestamp with time zone
+
+Table: allowance_setting_organisation
+  Column: tenant_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: cost_center_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+
+Table: core_costcodedata
+  Column: category_id, Data Type: uuid
+  Column: cost_code, Data Type: character varying
+  Column: date_rate_updated, Data Type: character varying
+  Column: tenant_id, Data Type: uuid
+  Column: description, Data Type: text
+  Column: unit, Data Type: character varying
+  Column: quantity, Data Type: integer
+  Column: comments, Data Type: text
+  Column: cost, Data Type: numeric
+  Column: main_cost_code_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: code_name, Data Type: character varying
+  Column: is_active, Data Type: boolean
+
+Table: budget_note
+  Column: date, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: is_active, Data Type: boolean
+  Column: tenant_id, Data Type: uuid
+  Column: daily_cost_id, Data Type: uuid
+  Column: message, Data Type: text
+  Column: id, Data Type: uuid
+
+Table: cost_code_notes
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: note, Data Type: text
+  Column: tenant_id, Data Type: uuid
+  Column: cost_code_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+
+Table: resource_code_templates
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: description, Data Type: text
+  Column: name, Data Type: character varying
+  Column: id, Data Type: uuid
+  Column: is_default, Data Type: boolean
+  Column: is_timesheet_rate, Data Type: boolean
+  Column: status, Data Type: character varying
+  Column: tenant_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: other_properties, Data Type: jsonb
+
+Table: daywork_docket_management_projectreportsetting
+  Column: tenant_id, Data Type: uuid
+  Column: daywork_docket_project_setting_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: report_visibility_setting_id, Data Type: uuid
+
+Table: purchase_order_autogenerateponumber
+  Column: tenant_id, Data Type: uuid
+  Column: prefix, Data Type: character varying
+  Column: id, Data Type: uuid
+  Column: invoice_email, Data Type: character varying
+  Column: next_suffix_value, Data Type: character varying
+  Column: suffix, Data Type: character varying
+
+Table: user_persist
+  Column: employee_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: data, Data Type: jsonb
+  Column: id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+
+Table: auth_group_permissions
+  Column: group_id, Data Type: integer
+  Column: permission_id, Data Type: integer
+  Column: id, Data Type: integer
+
+Table: core_claimamounthistory
+  Column: claim_sum, Data Type: numeric
+  Column: task_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: date, Data Type: timestamp with time zone
+
+Table: django_celery_beat_intervalschedule
+  Column: every, Data Type: integer
+  Column: period, Data Type: character varying
+  Column: id, Data Type: integer
+
+Table: site_diary_material_attachment
+  Column: materialnote_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: attachment_id, Data Type: uuid
+
+Table: site_diary_equipment_attachments
+  Column: resource_id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: unit_cost, Data Type: numeric
+  Column: untracked_cost_approved, Data Type: boolean
+  Column: unit, Data Type: character varying
+  Column: total_sum_duration, Data Type: numeric
+  Column: tenant_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: equipment_id, Data Type: uuid
+
+Table: report_option_miscellaneous
+  Column: created_by_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: enable, Data Type: boolean
+  Column: order, Data Type: integer
+  Column: report_option_id, Data Type: uuid
+
+Table: plant_and_equipment
+  Column: template_id, Data Type: uuid
+  Column: order, Data Type: integer
+  Column: created_by_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: import_dct_entries, Data Type: boolean
+  Column: enable, Data Type: boolean
+  Column: make_assign_task_required, Data Type: boolean
+  Column: import_approved_dct, Data Type: boolean
+  Column: tenant_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+
+Table: daywork_docket_client_email
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: uuid, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: daywork_docket_id, Data Type: uuid
+  Column: date, Data Type: timestamp with time zone
+  Column: is_expired, Data Type: boolean
+  Column: client_email, Data Type: character varying
+  Column: created_by_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: expire_task_id, Data Type: character varying
+  Column: client_name, Data Type: character varying
+
+Table: timesheet_payrollexport
+  Column: output_file, Data Type: character varying
+  Column: created_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: query_parms, Data Type: jsonb
+  Column: status, Data Type: character varying
+  Column: tenant_id, Data Type: uuid
+  Column: id, Data Type: uuid
+
+Table: template_note_section
+  Column: tenant_id, Data Type: uuid
+  Column: section_type, Data Type: character varying
+  Column: created_by_id, Data Type: uuid
+  Column: is_active, Data Type: boolean
+  Column: required, Data Type: boolean
+  Column: force_single_note_per_user, Data Type: boolean
+  Column: created_at, Data Type: timestamp with time zone
+  Column: order, Data Type: integer
+  Column: enable_voice_memo, Data Type: boolean
+  Column: enable_attachments, Data Type: boolean
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: note_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: name, Data Type: character varying
+  Column: description, Data Type: text
+
+Table: core_projectequipment
+  Column: added_by_id, Data Type: uuid
+  Column: updated_on, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: updated_by_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: equipment_id, Data Type: uuid
+  Column: project_id, Data Type: uuid
+  Column: unassigned_by_id, Data Type: uuid
+  Column: unassigned_date, Data Type: timestamp with time zone
+  Column: is_assigned, Data Type: boolean
+  Column: assigned_date, Data Type: timestamp with time zone
+
+Table: download
+  Column: identifier, Data Type: character varying
+  Column: file, Data Type: character varying
+  Column: file_name, Data Type: character varying
+  Column: user_id, Data Type: uuid
+  Column: content_hash, Data Type: character varying
+  Column: created_at, Data Type: timestamp with time zone
+  Column: status, Data Type: character varying
+  Column: id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: download_type, Data Type: character varying
+
+Table: subcontract_management_retentionsettingaggregate
+  Column: contract_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: merge_retention, Data Type: boolean
+  Column: combined_retention_id, Data Type: uuid
+  Column: variation_id, Data Type: uuid
+  Column: id, Data Type: uuid
+
+Table: site_diary
+  Column: project_id, Data Type: uuid
+  Column: status, Data Type: boolean
+  Column: id, Data Type: uuid
+  Column: approved_by_id, Data Type: uuid
+  Column: sign_id, Data Type: uuid
+  Column: reopen_by_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: created_at, Data Type: timestamp with time zone
+  Column: date, Data Type: date
+
+Table: integration_myob_employee_intermediate
+  Column: payroll_categories, Data Type: jsonb
+  Column: tenant_id, Data Type: uuid
+  Column: last_synced_on, Data Type: timestamp with time zone
+  Column: warning_msg, Data Type: character varying
+  Column: last_sync_status, Data Type: boolean
+  Column: failure_msg, Data Type: character varying
+  Column: data, Data Type: jsonb
+  Column: id, Data Type: uuid
+  Column: file_id, Data Type: uuid
+
+Table: employees
+  Column: email, Data Type: character varying
+  Column: thumbnail, Data Type: character varying
+  Column: archived_by_id, Data Type: uuid
+  Column: supplier_id, Data Type: uuid
+  Column: pay_category_id, Data Type: uuid
+  Column: archived_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: resource_name, Data Type: character varying
+  Column: pin_number, Data Type: character varying
+  Column: is_verified, Data Type: boolean
+  Column: user_id, Data Type: uuid
+  Column: phone_number, Data Type: character varying
+  Column: has_logged_in_once, Data Type: boolean
+  Column: id, Data Type: uuid
+  Column: is_active, Data Type: boolean
+  Column: resource_code, Data Type: character varying
+  Column: resource_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: employment_type_id, Data Type: uuid
+  Column: employee_id, Data Type: character varying
+  Column: is_activated, Data Type: boolean
+  Column: last_name, Data Type: character varying
+  Column: first_name, Data Type: character varying
+  Column: profile_pic, Data Type: character varying
+  Column: middle_name, Data Type: character varying
+  Column: rate, Data Type: double precision
+  Column: unit, Data Type: character varying
+  Column: updated_at, Data Type: timestamp with time zone
+
+Table: employee_employeepinreset
+  Column: uuid, Data Type: uuid
+  Column: employee_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: pin_number, Data Type: integer
+  Column: id, Data Type: uuid
+  Column: time, Data Type: timestamp with time zone
+
+Table: labour
+  Column: order, Data Type: integer
+  Column: show_group_by_resource, Data Type: boolean
+  Column: show_both, Data Type: boolean
+  Column: template_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: import_dct_entries, Data Type: boolean
+  Column: tenant_id, Data Type: uuid
+  Column: enable, Data Type: boolean
+  Column: show_group_by_supplier, Data Type: boolean
+  Column: import_approved_dct, Data Type: boolean
+  Column: created_by_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: make_assign_task_required, Data Type: boolean
+
+Table: stonly_stony
+  Column: getting_started_view_count, Data Type: integer
+  Column: user_id, Data Type: uuid
+  Column: custom_form_access_count, Data Type: integer
+  Column: id, Data Type: uuid
+  Column: pay_run_count, Data Type: integer
+
+Table: customform_formhistory
+  Column: form_uuid, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: form_snap, Data Type: jsonb
+  Column: version, Data Type: uuid
+  Column: form_id, Data Type: uuid
+  Column: setting_snap, Data Type: jsonb
+  Column: created_at, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+
+Table: geometry_columns
+  Column: srid, Data Type: integer
+  Column: f_table_catalog, Data Type: character varying
+  Column: coord_dimension, Data Type: integer
+  Column: type, Data Type: character varying
+  Column: f_geometry_column, Data Type: name
+  Column: f_table_name, Data Type: name
+  Column: f_table_schema, Data Type: name
+
+Table: customform_submission
+  Column: tenant_id, Data Type: uuid
+  Column: form_version, Data Type: uuid
+  Column: submission_number, Data Type: character varying
+  Column: status_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: form_answer, Data Type: jsonb
+  Column: timesheet_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: updated_by_id, Data Type: uuid
+  Column: user_form_status, Data Type: character varying
+  Column: form_id, Data Type: uuid
+  Column: equipment_id, Data Type: uuid
+  Column: project_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+
+Table: resourcecodes
+  Column: id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: resource_type_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: unit, Data Type: character varying
+  Column: resource_code, Data Type: character varying
+  Column: updated_at, Data Type: timestamp with time zone
+
+Table: budget_claimhead
+  Column: project_id, Data Type: uuid
+  Column: invoice_ref, Data Type: character varying
+  Column: claim_number, Data Type: integer
+  Column: initial_submitted_claim, Data Type: double precision
+  Column: claim_status, Data Type: integer
+  Column: start_date, Data Type: date
+  Column: created_at, Data Type: timestamp with time zone
+  Column: previous_approved, Data Type: double precision
+  Column: end_date, Data Type: date
+  Column: risk_factor, Data Type: double precision
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: is_active, Data Type: boolean
+  Column: submitted_date, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: approved_date, Data Type: timestamp with time zone
+
+Table: integration_myob_timesheet_export
+  Column: tenant_id, Data Type: uuid
+  Column: date, Data Type: date
+  Column: exported_hours, Data Type: ARRAY
+  Column: employee_id, Data Type: uuid
+  Column: id, Data Type: uuid
+
+Table: daywork_attachments
+  Column: created_by_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: include_in_pdf, Data Type: boolean
+  Column: attachment_id, Data Type: uuid
+  Column: daywork_docket_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+
+Table: django_admin_log
+  Column: user_id, Data Type: uuid
+  Column: content_type_id, Data Type: integer
+  Column: action_time, Data Type: timestamp with time zone
+  Column: object_repr, Data Type: character varying
+  Column: object_id, Data Type: text
+  Column: change_message, Data Type: text
+  Column: action_flag, Data Type: smallint
+  Column: id, Data Type: integer
+
+Table: django_celery_beat_periodictasks
+  Column: ident, Data Type: smallint
+  Column: last_update, Data Type: timestamp with time zone
+
+Table: site_diary_report_uuid_map
+  Column: project_id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: date, Data Type: date
+
+Table: site_diary_miscellaneous_note
+  Column: miscellaneous_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: note, Data Type: text
+  Column: created_by_id, Data Type: uuid
+
+Table: report_option_weather
+  Column: id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: enable, Data Type: boolean
+  Column: order, Data Type: integer
+  Column: report_option_id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+
+Table: daywork_docket_manual_approval_attachment
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: approval_id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: attachment_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+
+Table: notification_settings
+  Column: project_mobile_disabled, Data Type: boolean
+  Column: id, Data Type: uuid
+  Column: user_id, Data Type: uuid
+  Column: project_notification, Data Type: boolean
+  Column: mention_notification, Data Type: boolean
+  Column: profile_notification, Data Type: boolean
+  Column: mention_mobile_disabled, Data Type: boolean
+  Column: purchase_order_mobile_disabled, Data Type: boolean
+  Column: purchase_order_notification, Data Type: boolean
+  Column: profile_mobile_disabled, Data Type: boolean
+  Column: claim_notification, Data Type: boolean
+  Column: claim_mobile_disabled, Data Type: boolean
+
+Table: core_contactperson
+  Column: id, Data Type: uuid
+  Column: client_id, Data Type: uuid
+  Column: name, Data Type: character varying
+  Column: tenant_id, Data Type: uuid
+  Column: email, Data Type: character varying
+  Column: phone, Data Type: character varying
+  Column: address, Data Type: character varying
+
+Table: budget_claimattachment
+  Column: tenant_id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: comment, Data Type: text
+  Column: is_active, Data Type: boolean
+  Column: claim_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: attachment, Data Type: character varying
+
+Table: reminder
+  Column: remind_later, Data Type: boolean
+  Column: id, Data Type: uuid
+  Column: project_id, Data Type: uuid
+  Column: reminder_status, Data Type: integer
+  Column: reminder_date, Data Type: timestamp with time zone
+  Column: client_id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: created_at, Data Type: timestamp with time zone
+  Column: next_reminder, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+  Column: repeat_reminder, Data Type: integer
+  Column: note, Data Type: text
+
+Table: site_diary_weather_image
+  Column: tenant_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: weather_id, Data Type: uuid
+  Column: attachment_id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+
+Table: timesheet_attachment
+  Column: tenant_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: attachment_id, Data Type: uuid
+  Column: timesheet_id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+
+Table: role_timesheet_settings_wbs
+  Column: role_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: hide_wbs, Data Type: boolean
+
+Table: xero_supplier_intermediate
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: xero_supplier_id, Data Type: character varying
+  Column: id, Data Type: uuid
+  Column: varicon_supplier_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+
+Table: user_profile_emailchangehistory
+  Column: approved_or_reject_by_id, Data Type: uuid
+  Column: employee_id, Data Type: uuid
+  Column: current_email, Data Type: character varying
+  Column: created_at, Data Type: timestamp with time zone
+  Column: new_email, Data Type: character varying
+  Column: approved_status, Data Type: integer
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: user_id, Data Type: uuid
+
+Table: equipment_employee_project
+  Column: project_id, Data Type: uuid
+  Column: equipment_id, Data Type: uuid
+  Column: updated_on, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+  Column: added_by_id, Data Type: uuid
+  Column: employee_id, Data Type: uuid
+  Column: id, Data Type: uuid
+
+Table: purchase_order_taxsetting
+  Column: id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: rate, Data Type: double precision
+  Column: code, Data Type: character varying
+
+Table: core_projectemployee
+  Column: tenant_id, Data Type: uuid
+  Column: is_new, Data Type: boolean
+  Column: employee_id, Data Type: uuid
+  Column: added_by_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: project_id, Data Type: uuid
+  Column: updated_on, Data Type: timestamp with time zone
+
+Table: notifications
+  Column: actor_id, Data Type: uuid
+  Column: content_type_id, Data Type: uuid
+  Column: timestamp, Data Type: timestamp with time zone
+  Column: entity_id, Data Type: character varying
+  Column: entity_type, Data Type: character varying
+  Column: data, Data Type: jsonb
+  Column: action, Data Type: character varying
+  Column: id, Data Type: uuid
+
+Table: costcenter
+  Column: default, Data Type: boolean
+  Column: id, Data Type: uuid
+  Column: code, Data Type: character varying
+  Column: created_at, Data Type: timestamp with time zone
+  Column: description, Data Type: text
+  Column: is_unassigned_cost_center, Data Type: boolean
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: name, Data Type: character varying
+  Column: tenant_id, Data Type: uuid
+
+Table: subcontract_management_subcontractclaimsnap
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: snap, Data Type: jsonb
+  Column: subcontract_claimhead_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+
+Table: xero_tax_type
+  Column: status, Data Type: character varying
+  Column: report_tax_type, Data Type: character varying
+  Column: tenant_org_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: effective_rate, Data Type: double precision
+  Column: created_by_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: name, Data Type: character varying
+  Column: tax_type, Data Type: character varying
+
+Table: subcontract_management_defaultcontractnumber
+  Column: created_by_id, Data Type: uuid
+  Column: next_suffix_value, Data Type: character varying
+  Column: created_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: prefix, Data Type: character varying
+  Column: suffix, Data Type: character varying
+
+Table: project_allowance
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: allowance_id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: project_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+
+Table: employee_allowance
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: allowance_id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: employee_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+
+Table: purchase_order_approvalstep
+  Column: tenant_id, Data Type: uuid
+  Column: order, Data Type: integer
+  Column: name_po, Data Type: character varying
+  Column: name_workflow, Data Type: character varying
+  Column: workflow_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: name, Data Type: character varying
+
+Table: xero_connected_purchase_order
+  Column: access_token_expires_on, Data Type: timestamp with time zone
+  Column: scopes, Data Type: text
+  Column: tenant_id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: last_sync_on, Data Type: timestamp with time zone
+  Column: active_tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: access_token, Data Type: text
+  Column: refresh_token, Data Type: text
+
+Table: site_diary_weather_file
+  Column: tenant_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: weather_id, Data Type: uuid
+  Column: attachment_id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+
+Table: production_tracking_note_attachment
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: note, Data Type: text
+  Column: created_by_id, Data Type: uuid
+  Column: production_tracking_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+
+Table: user_profile_userprofile
+  Column: image_id, Data Type: uuid
+  Column: archived_dt, Data Type: timestamp with time zone
+  Column: phone_number, Data Type: character varying
+  Column: id, Data Type: uuid
+  Column: user_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: delete_status, Data Type: integer
+
+Table: daywork_docket_management_reportvisibilitysetting
+  Column: order, Data Type: integer
+  Column: visibility_status, Data Type: boolean
+  Column: created_by_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+  Column: additional_setting_data, Data Type: jsonb
+  Column: audits, Data Type: jsonb
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: title, Data Type: character varying
+
+Table: daywork_docket_management_templateallowance
+  Column: created_by_id, Data Type: uuid
+  Column: allowance_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: template_setting_id, Data Type: uuid
+
+Table: resource_code_notes
+  Column: created_by_id, Data Type: uuid
+  Column: resource_code_id, Data Type: integer
+  Column: id, Data Type: integer
+  Column: created_at, Data Type: timestamp with time zone
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: note, Data Type: text
+
+Table: site_diary_notes_snapshot
+  Column: tenant_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: data, Data Type: jsonb
+  Column: hash, Data Type: character varying
+  Column: extra, Data Type: jsonb
+  Column: version, Data Type: integer
+
+Table: site_diary_note_audit_log
+  Column: source, Data Type: character varying
+  Column: section_name, Data Type: character varying
+  Column: created_at, Data Type: timestamp with time zone
+  Column: project_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: date, Data Type: date
+  Column: created_by_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: action, Data Type: character varying
+  Column: id, Data Type: uuid
+
+Table: site_diary_plant_and_equipment_note
+  Column: id, Data Type: uuid
+  Column: equipment_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: note, Data Type: text
+
+Table: organisations
+  Column: purchase_order_logo, Data Type: character varying
+  Column: purchase_order_abn_number, Data Type: character varying
+  Column: title, Data Type: character varying
+  Column: terms_and_conditions_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: purchase_order_title, Data Type: character varying
+  Column: id, Data Type: uuid
+  Column: status, Data Type: boolean
+  Column: logo, Data Type: character varying
+  Column: abn_number, Data Type: character varying
+
+Table: docket_docketfile
+  Column: created_by_id, Data Type: uuid
+  Column: attachment_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: docket_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: thumbnail_renamed, Data Type: character varying
+  Column: file_renamed, Data Type: character varying
+
+Table: template_note
+  Column: id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: template_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: order, Data Type: integer
+  Column: enable, Data Type: boolean
+
+Table: site_diary_setting_summary_snapshot
+  Column: tenant_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: data, Data Type: jsonb
+  Column: extra, Data Type: jsonb
+  Column: version, Data Type: integer
+  Column: hash, Data Type: character varying
+
+Table: bill_management_bill
+  Column: created_by_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: created_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+
+Table: integration_myob_po_sync_history
+  Column: id, Data Type: uuid
+  Column: company_file_id, Data Type: uuid
+  Column: audit_information, Data Type: character varying
+  Column: tenant_id, Data Type: uuid
+  Column: sync_timestamp, Data Type: timestamp with time zone
+  Column: purchase_order_id, Data Type: uuid
+
+Table: easy_thumbnails_source
+  Column: name, Data Type: character varying
+  Column: modified, Data Type: timestamp with time zone
+  Column: storage_hash, Data Type: character varying
+  Column: id, Data Type: integer
+
+Table: budget_claimtasknoteattachment
+  Column: id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: note_attachment_id, Data Type: uuid
+  Column: claim_task_note_id, Data Type: uuid
+
+Table: timesheet_equipment_attachment
+  Column: attachment_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: timesheet_equipment_id, Data Type: uuid
+  Column: id, Data Type: uuid
+
+Table: site_diary_weather_snapshot_snapshot
+  Column: version, Data Type: integer
+  Column: extra, Data Type: jsonb
+  Column: hash, Data Type: character varying
+  Column: tenant_id, Data Type: uuid
+  Column: data, Data Type: jsonb
+  Column: id, Data Type: uuid
+
+Table: spatial_ref_sys
+  Column: proj4text, Data Type: character varying
+  Column: srid, Data Type: integer
+  Column: auth_name, Data Type: character varying
+  Column: auth_srid, Data Type: integer
+  Column: srtext, Data Type: character varying
+
+Table: budget_claimsnap
+  Column: modified_date, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: date, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+  Column: head_id, Data Type: uuid
+  Column: data, Data Type: jsonb
+
+Table: auth_group
+  Column: name, Data Type: character varying
+  Column: id, Data Type: integer
+
+Table: user_role_globalcontenttype
+  Column: id, Data Type: uuid
+  Column: model, Data Type: character varying
+  Column: app_label, Data Type: character varying
+
+Table: user_profile_sidebarnav
+  Column: user_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: is_expanded, Data Type: boolean
+
+Table: equipment_attachments
+  Column: id, Data Type: uuid
+  Column: resource_id, Data Type: uuid
+  Column: equipment_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: rate, Data Type: numeric
+
+Table: user_role_tenantgrouppermission
+  Column: permission_id, Data Type: uuid
+  Column: tenant_group_id, Data Type: uuid
+  Column: id, Data Type: uuid
+
+Table: track_varicon_knowledge
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: track_view, Data Type: character varying
+  Column: tenant_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+
+Table: django_session
+  Column: session_data, Data Type: text
+  Column: expire_date, Data Type: timestamp with time zone
+  Column: session_key, Data Type: character varying
+
+Table: core_country
+  Column: name, Data Type: character varying
+  Column: id, Data Type: uuid
+
+Table: core_draftproject
+  Column: id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: data, Data Type: jsonb
+
+Table: django_content_type
+  Column: id, Data Type: integer
+  Column: model, Data Type: character varying
+  Column: app_label, Data Type: character varying
+
+Table: jwt_backup_codes
+  Column: token, Data Type: character varying
+  Column: user_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: is_used, Data Type: boolean
+
+Table: user_role_globalpermission
+  Column: content_type_id, Data Type: uuid
+  Column: name, Data Type: character varying
+  Column: codename, Data Type: character varying
+  Column: id, Data Type: uuid
+
+Table: daily_cost_tracking_hidedctdefaultcolumns
+  Column: id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: project_id, Data Type: uuid
+
+Table: site_diary_equipment_snapshot
+  Column: extra, Data Type: jsonb
+  Column: version, Data Type: integer
+  Column: hash, Data Type: character varying
+  Column: tenant_id, Data Type: uuid
+  Column: data, Data Type: jsonb
+  Column: id, Data Type: uuid
+
+Table: customform_customformtag
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: id, Data Type: uuid
+  Column: title, Data Type: character varying
+  Column: tenant_id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+
+Table: favourite_project
+  Column: project_id, Data Type: uuid
+  Column: user_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: created_at, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+
+Table: authtoken_token
+  Column: user_id, Data Type: integer
+  Column: created, Data Type: timestamp with time zone
+  Column: key, Data Type: character varying
+
+Table: core_contractcost
+  Column: id, Data Type: uuid
+  Column: created_by_id, Data Type: uuid
+  Column: date, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+  Column: contract_sum, Data Type: numeric
+  Column: task_id, Data Type: uuid
+
+Table: budget_dailycostdocuments
+  Column: created_by_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: daily_cost_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: documents, Data Type: character varying
+
+Table: core_passwordresets
+  Column: uuid, Data Type: uuid
+  Column: user_id, Data Type: uuid
+  Column: invitation, Data Type: boolean
+  Column: id, Data Type: uuid
+  Column: date, Data Type: timestamp with time zone
+
+Table: user_mobile_devices
+  Column: token, Data Type: character varying
+  Column: is_valid, Data Type: boolean
+  Column: created_on, Data Type: timestamp with time zone
+  Column: user_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: endpoint_arn, Data Type: character varying
+
+Table: cost_center_settings_projectsetting
+  Column: dct_choice, Data Type: character varying
+  Column: project_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: id, Data Type: uuid
+
+Table: name_mapping
+  Column: created_at, Data Type: timestamp with time zone
+  Column: created_by_id, Data Type: uuid
+  Column: updated_at, Data Type: timestamp with time zone
+  Column: tenant_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: mapping, Data Type: jsonb
+
+Table: production_tracking_attachment
+  Column: attachment_id, Data Type: uuid
+  Column: id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+  Column: note_id, Data Type: uuid
+
+Table: daywork_docket_client_approval
+  Column: approval_ptr_id, Data Type: uuid
+  Column: is_approved, Data Type: boolean
+  Column: is_manual_approved, Data Type: boolean
+  Column: rejected_reason, Data Type: character varying
+
+Table: auth_permission
+  Column: id, Data Type: integer
+  Column: name, Data Type: character varying
+  Column: content_type_id, Data Type: integer
+  Column: codename, Data Type: character varying
+
+Table: budget_claimnoteattachment
+  Column: id, Data Type: uuid
+  Column: claim_note_id, Data Type: uuid
+  Column: note_attachment_id, Data Type: uuid
+  Column: tenant_id, Data Type: uuid
+
+Table: easy_thumbnails_thumbnaildimensions
+  Column: id, Data Type: integer
+  Column: thumbnail_id, Data Type: integer
+  Column: height, Data Type: integer
+  Column: width, Data Type: integer
+
+Table: django_celery_beat_clockedschedule
+  Column: id, Data Type: integer
+  Column: clocked_time, Data Type: timestamp with time zone
+
+Table: auth_user_user_permissions
+  Column: id, Data Type: integer
+  Column: user_id, Data Type: integer
+  Column: permission_id, Data Type: integer
+
+Table: core_clientstate
+  Column: name, Data Type: character varying
+  Column: timezone, Data Type: character varying
+  Column: id, Data Type: uuid
+  Column: country_id, Data Type: uuid
+
+Table: site_diary_sitediarycommonpermission
+  Column: id, Data Type: integer
+
+Table: api_commonpermission
+  Column: id, Data Type: integer
